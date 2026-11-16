@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Stackly client dashboard for tracking projects, invoices, and support.">
+    <title>Client Dashboard — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page clients-dashboard-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <section class="dashboard-hero">
+        <div>
+          <span class="eyebrow">Client Dashboard</span>
+          <h1>Welcome back, Client</h1>
+          <p>Track your projects, review updates, and stay connected with the Stackly team.</p>
+        </div>
+        <div class="dashboard-actions">
+          <a class="button button-purple" href="404.html">New request</a>
+          <a class="button button-blue" href="404.html">Get support</a>
+        </div>
+      </section>
+
+      <section class="dashboard-stats" aria-label="Account summary">
+        <article class="dash-stat-card">
+          <p>Active Projects</p>
+          <h2>3</h2>
+          <span class="dash-trend up">1 milestone reached</span>
+        </article>
+        <article class="dash-stat-card">
+          <p>Pending Tasks</p>
+          <h2>7</h2>
+          <span class="dash-trend warn">2 need your review</span>
+        </article>
+        <article class="dash-stat-card">
+          <p>Invoices</p>
+          <h2>2</h2>
+          <span class="dash-trend">1 due this week</span>
+        </article>
+        <article class="dash-stat-card">
+          <p>Messages</p>
+          <h2>5</h2>
+          <span class="dash-trend up">New updates available</span>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="dash-panel">
+          <div class="dash-panel-head">
+            <h3>My Projects</h3>
+            <a href="support.html">View details</a>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr><th>Project</th><th>Manager</th><th>Status</th><th>Progress</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Website Redesign</td><td>Jane Lin</td><td><span class="status-pill progress">In Progress</span></td><td>72%</td></tr>
+                <tr><td>Brand Guidelines</td><td>Sofia Mendes</td><td><span class="status-pill review">In Review</span></td><td>90%</td></tr>
+                <tr><td>SEO Campaign</td><td>Liam Chen</td><td><span class="status-pill pending">Pending</span></td><td>35%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="dash-panel">
+          <div class="dash-panel-head">
+            <h3>Recent Updates</h3>
+            <a href="contact.html">Message team</a>
+          </div>
+          <ul class="dash-alerts">
+            <li><strong>Design review ready</strong><span>Your brand guidelines draft is ready for feedback.</span></li>
+            <li><strong>New invoice available</strong><span>Invoice #INV-2043 has been added to your account.</span></li>
+            <li><strong>Milestone completed</strong><span>Homepage development phase completed successfully.</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid-secondary">
+        <article class="dash-panel">
+          <div class="dash-panel-head">
+            <h3>Invoices &amp; Billing</h3>
+          </div>
+          <ul class="dash-list">
+            <li><div><strong>INV-2043</strong><span>Website Redesign · Due Nov 20</span></div><span class="status-pill pending">Unpaid</span></li>
+            <li><div><strong>INV-2038</strong><span>Brand Guidelines · Paid Nov 10</span></div><span class="status-pill success">Paid</span></li>
+            <li><div><strong>INV-2031</strong><span>SEO Campaign · Paid Oct 28</span></div><span class="status-pill success">Paid</span></li>
+          </ul>
+        </article>
+        <article class="dash-panel">
+          <div class="dash-panel-head">
+            <h3>Quick Actions</h3>
+          </div>
+          <div class="dash-quick-actions">
+            <a href="contact.html">Upload files</a>
+            <a href="support.html">Open ticket</a>
+            <a href="contact.html">Schedule call</a>
+            <a href="about.html">View services</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

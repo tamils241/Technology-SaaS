@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Log in to your Stackly account.">
+    <title>Welcome back — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="auth-page">
+    <main class="auth-layout">
+      <aside class="auth-aside" aria-label="Welcome back to Stackly">
+        <a class="auth-logo auth-aside-logo" href="index.html" aria-label="Stackly home"><img src="images/logo.webp" alt="Stackly"></a>
+        <p class="eyebrow">Welcome back</p>
+        <h2>Everything you need, right where you left it</h2>
+        <p>Log in to continue managing your projects, collaborating with your team, and staying connected with your clients.</p>
+        <ul class="auth-aside-list">
+          <li>Quick access to your dashboard</li>
+          <li>Role-based access for admins and clients</li>
+          <li>Secure sign-in with password protection</li>
+        </ul>
+      </aside>
+      <section class="auth-card auth-login">
+        <h1>Welcome back</h1>
+        <p class="auth-subtitle">We’re so excited to see you again!</p>
+        <form class="auth-form" data-demo-form>
+          <label for="login-email">Email</label>
+          <input id="login-email" name="email" type="email" placeholder="example@mail.com" autocomplete="email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z][A-Za-z0-9.-]*\.[A-Za-z]{2,}" title="Enter a valid email address (e.g. user@gmail.com).">
+          <div class="auth-label-row"><label for="login-password">Password</label><a href="404.html" class="forgot-link">Forgot Password?</a></div>
+          <div class="password-input"><input id="login-password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" title="Use at least 8 characters with uppercase, lowercase, a number, and a symbol." required><button type="button" class="password-toggle" data-password-toggle aria-label="Show password">◉</button></div>
+          <ul class="password-rules" aria-label="Password requirements">
+            <li data-password-rule="length">Minimum 8 characters</li>
+            <li data-password-rule="number">Must contain at least 1 number</li>
+            <li data-password-rule="case">Must contain at least 1 capital case and 1 small case</li>
+            <li data-password-rule="symbol">Must contain at least 1 symbol</li>
+          </ul>
+          <div class="auth-remember">
+            <label for="login-remember"><input id="login-remember" type="checkbox" name="remember"> Remember me</label>
+          </div>
+          <fieldset class="role-picker">
+            <legend>Select role</legend>
+            <label><input type="radio" name="role" value="admin"><span>Admin</span></label>
+            <label><input type="radio" name="role" value="clients"><span>Clients</span></label>
+          </fieldset>
+          <button class="auth-submit" type="submit">Login <span aria-hidden="true">→</span></button>
+          <p class="auth-message" aria-live="polite"></p>
+        </form>
+        <p class="auth-switch">Don’t have account? <a href="signin.html">Register here</a></p>
+      </section>
+    </main>
+  </body>
+</html>

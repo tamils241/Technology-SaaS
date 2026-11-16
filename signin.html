@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Create or update your Stackly account.">
+    <title>Sign in — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="auth-page">
+    <main class="auth-layout">
+      <aside class="auth-aside" aria-label="Welcome to Stackly">
+        <a class="auth-logo auth-aside-logo" href="index.html" aria-label="Stackly home"><img src="images/logo.webp" alt="Stackly"></a>
+        <p class="eyebrow">Welcome to Stackly</p>
+        <h2>Build, manage, and grow with confidence</h2>
+        <p>Create your account to access your workspace, collaborate with your team, and manage client projects in one place.</p>
+        <ul class="auth-aside-list">
+          <li>Secure access for admins and clients</li>
+          <li>Simple tools to manage work and updates</li>
+          <li>Reliable support whenever you need it</li>
+        </ul>
+      </aside>
+      <section class="auth-card auth-signin">
+        <h1>Sign in</h1>
+        <form class="auth-form" data-demo-form>
+          <label for="signin-email">Email</label>
+          <input id="signin-email" name="email" type="email" placeholder="stackly@gmail.com" autocomplete="email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z][A-Za-z0-9.-]*\.[A-Za-z]{2,}" title="Enter a valid email address (e.g. user@gmail.com).">
+          <label for="signin-name">Name</label>
+          <input id="signin-name" name="name" type="text" placeholder="YourName" autocomplete="name" required maxlength="16" pattern="[A-Za-z]{1,16}" title="Use 1 to 16 letters only (no numbers, spaces, or special characters).">
+          <div class="auth-label-row"><label for="signin-password">Password</label><a href="404.html" class="forgot-link">Forgot Password?</a></div>
+          <div class="password-input"><input id="signin-password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" title="Use at least 8 characters with uppercase, lowercase, a number, and a symbol." required><button type="button" class="password-toggle" data-password-toggle aria-label="Show password">◉</button></div>
+          <label for="signin-confirm-password">Confirm password</label>
+          <div class="password-input"><input id="signin-confirm-password" name="confirm-password" type="password" placeholder="••••••••" autocomplete="new-password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" title="Use at least 8 characters with uppercase, lowercase, a number, and a symbol." required><button type="button" class="password-toggle" data-password-toggle aria-label="Show confirm password">◉</button></div>
+          <fieldset class="role-picker">
+            <legend>Select role</legend>
+            <label><input type="radio" name="role" value="admin"><span>Admin</span></label>
+            <label><input type="radio" name="role" value="clients"><span>Clients</span></label>
+          </fieldset>
+          <button class="auth-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          <p class="auth-message" aria-live="polite"></p>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="login.html">Login here</a></p>
+      </section>
+    </main>
+  </body>
+</html>
