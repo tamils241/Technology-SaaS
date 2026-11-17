@@ -326,7 +326,7 @@ h1, h2, h3 { font-family: var(--font-display); }
 .auth-layout { width: min(100%, 1100px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, 460px); gap: 48px; align-items: center; }
 .auth-aside { padding: 24px 8px; }
 .auth-aside-logo { margin: 0 0 22px; }
-.auth-aside-logo img { width: 300px; filter: brightness(0) saturate(100%); }
+.auth-aside .auth-aside-logo img { width: clamp(180px, 26vw, 300px); max-width: 100%; filter: brightness(0) saturate(100%); }
 
 /* DASHBOARD PAGES */
 .dashboard-page { background: #f5f7fa; }
