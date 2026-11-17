@@ -422,7 +422,8 @@ h1, h2, h3 { font-family: var(--font-display); }
 
 @media (max-width: 1100px) {
   .dash-shell { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-  .dash-sidenav { position: static; grid-auto-flow: column; grid-auto-columns: max-content; gap: 6px; overflow-x: auto; padding: 10px; -webkit-overflow-scrolling: touch; }
+  .dash-sidenav { position: static; display: flex; flex-wrap: wrap; width: 100%; max-width: 100%; gap: 8px; padding: 10px; box-sizing: border-box; overflow: visible; }
+  .dash-sidenav a { flex: 0 1 auto; min-width: 120px; justify-content: center; box-sizing: border-box; }
   .dash-sidenav-title { display: none; }
 }
 @media (max-width: 768px) {
