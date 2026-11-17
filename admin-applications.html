@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Review applications, shortlist candidates, and move the best people forward.">
+    <title>Applications — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page admin-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Admin dashboard sections">
+        <p class="dash-sidenav-title">Admin Dashboard</p>
+        <a href="admin-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="admin-projects.html"><i aria-hidden="true">▤</i><span>Projects</span></a>
+        <a href="admin-users.html"><i aria-hidden="true">♙</i><span>Users &amp; access</span></a>
+        <a href="admin-tickets.html"><i aria-hidden="true">✉</i><span>Support tickets</span></a>
+        <a href="admin-reports.html"><i aria-hidden="true">▥</i><span>Reports</span></a>
+        <a href="admin-applications.html" class="is-active" aria-current="page"><i aria-hidden="true">◉</i><span>Applications</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Admin Dashboard <span>/</span> Applications</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Applications</span>
+              <h1>Hiring Pipeline</h1>
+              <p>Review applications, shortlist candidates, and move the best people forward.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="admin-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="careers.html">View careers page</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Applications summary">
+          <article class="dash-stat-card"><p>Total applications</p><h2>64</h2><span class="dash-trend up">+12 this week</span></article>
+          <article class="dash-stat-card"><p>New</p><h2>12</h2><span class="dash-trend warn">Awaiting review</span></article>
+          <article class="dash-stat-card"><p>Interviewing</p><h2>8</h2><span class="dash-trend">Scheduled this week</span></article>
+          <article class="dash-stat-card"><p>Hired</p><h2>3</h2><span class="dash-trend up">This quarter</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Recent candidates</h3><span class="dash-trend">Latest 6</span></div>
+              <form class="subpage-toolbar" data-filter-table="#admin-app-table" data-demo-form>
+                <label class="sr-only" for="admin-app-search">Search candidates</label>
+                <input id="admin-app-search" type="search" placeholder="Search candidates or roles…">
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="admin-app-table">
+                  <thead><tr><th>Candidate</th><th>Role</th><th>Stage</th><th>Applied</th></tr></thead>
+                  <tbody>
+                    <tr><td>Amara Okafor</td><td>Product Designer</td><td><span class="status-pill pending">New</span></td><td>Nov 16</td></tr>
+                    <tr><td>Daniel Park</td><td>Frontend Engineer</td><td><span class="status-pill progress">Interviewing</span></td><td>Nov 15</td></tr>
+                    <tr><td>Priya Nair</td><td>Content Strategist</td><td><span class="status-pill review">In Review</span></td><td>Nov 14</td></tr>
+                    <tr><td>Mateo Silva</td><td>Marketing Lead</td><td><span class="status-pill success">Hired</span></td><td>Nov 10</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Review queue</h3></div>
+              <ul class="dash-alerts">
+                <li><strong>12 new applications</strong><span>Review within 3 business days.</span></li>
+                <li><strong>4 interviews today</strong><span>Product Design and Engineering panels.</span></li>
+                <li><strong>Offer follow-up</strong><span>Confirm start date with Mateo Silva.</span></li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

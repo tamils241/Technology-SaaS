@@ -61,7 +61,12 @@ if (contactPhone) {
 document.querySelectorAll("[data-demo-form]").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const message = form.querySelector(".auth-message, .form-feedback");
+    if (form.matches("[data-filter-table]")) return;
+    const message =
+      form.querySelector(".auth-message, .form-feedback") ||
+      (form.nextElementSibling?.matches(".auth-message, .form-feedback")
+        ? form.nextElementSibling
+        : null);
 
     if (!message) return;
 
@@ -143,6 +148,71 @@ document.querySelectorAll("[data-demo-form]").forEach((form) => {
   });
 });
 
+const contactFormEl = document.querySelector(".contact-form");
+if (contactFormEl) {
+  const contactFeedback = contactFormEl.querySelector(".form-feedback");
+  const clearContactFeedback = () => {
+    if (contactFeedback) contactFeedback.textContent = "";
+  };
+
+  contactFormEl.addEventListener(
+    "invalid",
+    () => {
+      if (contactFeedback) {
+        contactFeedback.textContent = "Please complete all required fields before continuing.";
+      }
+    },
+    true
+  );
+
+  contactFormEl.addEventListener("input", clearContactFeedback);
+  contactFormEl.addEventListener("change", clearContactFeedback);
+}
+
+document.querySelectorAll("[data-filter-table]").forEach((form) => {
+  const table = document.querySelector(form.dataset.filterTable);
+  if (!table) return;
+
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+  const emptyTarget = form.dataset.emptyTarget
+    ? document.querySelector(form.dataset.emptyTarget)
+    : null;
+  const message = form.querySelector(".form-feedback");
+  const fields = Array.from(form.querySelectorAll("input, select"));
+
+  const filterRows = () => {
+    const terms = fields
+      .map((field) => field.value.trim().toLowerCase())
+      .filter(Boolean);
+    let visible = 0;
+
+    rows.forEach((row) => {
+      const text = row.textContent.toLowerCase();
+      const matches = terms.every((term) => text.includes(term));
+      row.hidden = !matches;
+      if (matches) visible += 1;
+    });
+
+    if (emptyTarget) emptyTarget.hidden = visible !== 0;
+    if (message) {
+      message.textContent = !terms.length
+        ? ""
+        : visible
+          ? `Showing ${visible} of ${rows.length} rows.`
+          : "No matching rows found.";
+    }
+  };
+
+  fields.forEach((field) => {
+    field.addEventListener("input", filterRows);
+    field.addEventListener("change", filterRows);
+  });
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    filterRows();
+  });
+});
+
 document.querySelectorAll("[data-job-search]").forEach((form) => {
   const keyword = form.querySelector('[name="keyword"]');
   const city = form.querySelector('[name="city"]');
@@ -173,6 +243,37 @@ document.querySelectorAll("[data-job-search]").forEach((form) => {
   });
   form.addEventListener("input", filterJobs);
   form.addEventListener("change", filterJobs);
+});
+
+document.querySelectorAll("[data-explore-categories]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+
+    if (!target) return;
+
+    event.preventDefault();
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const header = document.querySelector(".site-header");
+    const offset = (header ? header.getBoundingClientRect().height : 0) + 16;
+    const top = window.scrollY + target.getBoundingClientRect().top - offset;
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+
+    try {
+      history.replaceState(null, "", link.getAttribute("href"));
+    } catch (error) {
+      /* file:// or restricted contexts may block history updates */
+    }
+
+    target.classList.remove("is-flash");
+    void target.offsetWidth;
+    target.classList.add("is-flash");
+    window.setTimeout(() => target.classList.remove("is-flash"), 1400);
+  });
 });
 
 document.querySelectorAll("[data-go-back]").forEach((button) => {

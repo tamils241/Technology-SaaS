@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Upload, organize, and share the assets your team needs for every project.">
+    <title>Files & Assets — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page clients-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Client dashboard sections">
+        <p class="dash-sidenav-title">Client Dashboard</p>
+        <a href="clients-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="client-projects.html"><i aria-hidden="true">▤</i><span>My projects</span></a>
+        <a href="client-requests.html"><i aria-hidden="true">✎</i><span>New request</span></a>
+        <a href="client-invoices.html"><i aria-hidden="true">▥</i><span>Invoices</span></a>
+        <a href="client-support.html"><i aria-hidden="true">✉</i><span>Support</span></a>
+        <a href="client-files.html" class="is-active" aria-current="page"><i aria-hidden="true">⬆</i><span>Files &amp; assets</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Client Dashboard <span>/</span> Files &amp; assets</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Files &amp; assets</span>
+              <h1>Files &amp; Assets</h1>
+              <p>Upload, organize, and share the assets your team needs for every project.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="clients-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="client-projects.html">My projects</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Files &amp; assets summary">
+          <article class="dash-stat-card"><p>Files shared</p><h2>28</h2><span class="dash-trend up">+6 this month</span></article>
+          <article class="dash-stat-card"><p>Storage used</p><h2>1.4 GB</h2><span class="dash-trend">of 10 GB</span></article>
+          <article class="dash-stat-card"><p>Awaiting review</p><h2>3</h2><span class="dash-trend warn">Needs your feedback</span></article>
+          <article class="dash-stat-card"><p>Folders</p><h2>6</h2><span class="dash-trend">Across 3 projects</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Recent files</h3><span class="dash-trend">Latest 5</span></div>
+              <div class="dash-table-wrap">
+                <table class="dash-table">
+                  <thead><tr><th>File</th><th>Project</th><th>Size</th><th>Uploaded</th></tr></thead>
+                  <tbody>
+                    <tr><td>homepage-final.webp</td><td>Website Redesign</td><td>2.4 MB</td><td>Nov 16</td></tr>
+                    <tr><td>brand-guide-v3.pdf</td><td>Brand Guidelines</td><td>8.1 MB</td><td>Nov 14</td></tr>
+                    <tr><td>keyword-plan.webp</td><td>SEO Campaign</td><td>740 KB</td><td>Nov 12</td></tr>
+                    <tr><td>logo-master.webp</td><td>Brand Guidelines</td><td>126 KB</td><td>Nov 09</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Upload a file</h3></div>
+              <form class="dash-inline-form" data-demo-form>
+                <label for="upload-file">Choose a file</label>
+                <input id="upload-file" name="file" type="file" accept=".pdf,.doc,.docx,image/webp" required>
+                <label for="upload-project">Project</label>
+                <select id="upload-project" name="project" required><option value="">Choose project</option><option>Website Redesign</option><option>Brand Guidelines</option><option>SEO Campaign</option></select>
+                <button class="button button-purple" type="submit">Upload file</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <p class="dash-note">Images must be WebP. Documents up to 20 MB are accepted.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

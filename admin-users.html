@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Invite teammates, manage roles, and review access across admin and client accounts.">
+    <title>Users & Access — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page admin-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Admin dashboard sections">
+        <p class="dash-sidenav-title">Admin Dashboard</p>
+        <a href="admin-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="admin-projects.html"><i aria-hidden="true">▤</i><span>Projects</span></a>
+        <a href="admin-users.html" class="is-active" aria-current="page"><i aria-hidden="true">♙</i><span>Users &amp; access</span></a>
+        <a href="admin-tickets.html"><i aria-hidden="true">✉</i><span>Support tickets</span></a>
+        <a href="admin-reports.html"><i aria-hidden="true">▥</i><span>Reports</span></a>
+        <a href="admin-applications.html"><i aria-hidden="true">◉</i><span>Applications</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Admin Dashboard <span>/</span> Users &amp; access</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Users &amp; access</span>
+              <h1>User Management</h1>
+              <p>Invite teammates, manage roles, and review access across admin and client accounts.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="admin-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="admin-tickets.html">Support tickets</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Users &amp; access summary">
+          <article class="dash-stat-card"><p>Total users</p><h2>1,284</h2><span class="dash-trend up">+12% this month</span></article>
+          <article class="dash-stat-card"><p>Admins</p><h2>38</h2><span class="dash-trend up">+2 this month</span></article>
+          <article class="dash-stat-card"><p>Clients</p><h2>326</h2><span class="dash-trend up">+8 new</span></article>
+          <article class="dash-stat-card"><p>Invited</p><h2>12</h2><span class="dash-trend warn">Awaiting response</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Directory</h3><span class="dash-trend">Recent accounts</span></div>
+              <form class="subpage-toolbar" data-filter-table="#admin-user-table" data-demo-form>
+                <label class="sr-only" for="admin-user-search">Search users</label>
+                <input id="admin-user-search" type="search" placeholder="Search users or email…">
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="admin-user-table">
+                  <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jane Lin</td><td>Admin</td><td>jane@stackly.example</td><td><span class="status-pill success">Active</span></td></tr>
+                    <tr><td>Sofia Mendes</td><td>Client</td><td>sofia@novalabs.com</td><td><span class="status-pill progress">Active</span></td></tr>
+                    <tr><td>Liam Chen</td><td>Client</td><td>liam@greenfield.io</td><td><span class="status-pill pending">Invited</span></td></tr>
+                    <tr><td>Ethan Ross</td><td>Admin</td><td>ethan@stackly.example</td><td><span class="status-pill review">Suspended</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Add a user</h3></div>
+              <form class="dash-inline-form" data-demo-form>
+                <label for="new-user-name">Full name</label>
+                <input id="new-user-name" name="name" type="text" placeholder="Eg: Alex Morgan" required>
+                <label for="new-user-email">Work email</label>
+                <input id="new-user-email" name="email" type="email" placeholder="alex@company.com" required>
+                <label for="new-user-role">Role</label>
+                <select id="new-user-role" name="role" required><option value="">Choose role</option><option>Admin</option><option>Client</option></select>
+                <button class="button button-purple" type="submit">Send invitation</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

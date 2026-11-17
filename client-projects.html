@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Follow progress, review milestones, and see what the Stackly team is working on.">
+    <title>My Projects — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page clients-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Client dashboard sections">
+        <p class="dash-sidenav-title">Client Dashboard</p>
+        <a href="clients-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="client-projects.html" class="is-active" aria-current="page"><i aria-hidden="true">▤</i><span>My projects</span></a>
+        <a href="client-requests.html"><i aria-hidden="true">✎</i><span>New request</span></a>
+        <a href="client-invoices.html"><i aria-hidden="true">▥</i><span>Invoices</span></a>
+        <a href="client-support.html"><i aria-hidden="true">✉</i><span>Support</span></a>
+        <a href="client-files.html"><i aria-hidden="true">⬆</i><span>Files &amp; assets</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Client Dashboard <span>/</span> My projects</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">My projects</span>
+              <h1>Your Projects</h1>
+              <p>Follow progress, review milestones, and see what the Stackly team is working on.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="clients-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="client-requests.html">New request</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="My projects summary">
+          <article class="dash-stat-card"><p>Active projects</p><h2>3</h2><span class="dash-trend up">1 milestone reached</span></article>
+          <article class="dash-stat-card"><p>Milestones</p><h2>8</h2><span class="dash-trend">2 upcoming</span></article>
+          <article class="dash-stat-card"><p>In review</p><h2>1</h2><span class="dash-trend warn">Your feedback needed</span></article>
+          <article class="dash-stat-card"><p>Completed</p><h2>4</h2><span class="dash-trend up">All delivered</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Project status</h3><span class="dash-trend">3 active</span></div>
+              <form class="subpage-toolbar" data-filter-table="#client-project-table" data-demo-form>
+                <label class="sr-only" for="client-project-search">Search projects</label>
+                <input id="client-project-search" type="search" placeholder="Search your projects…">
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="client-project-table">
+                  <thead><tr><th>Project</th><th>Manager</th><th>Status</th><th>Progress</th></tr></thead>
+                  <tbody>
+                    <tr><td>Website Redesign</td><td>Jane Lin</td><td><span class="status-pill progress">In Progress</span></td><td>72%</td></tr>
+                    <tr><td>Brand Guidelines</td><td>Sofia Mendes</td><td><span class="status-pill review">In Review</span></td><td>90%</td></tr>
+                    <tr><td>SEO Campaign</td><td>Liam Chen</td><td><span class="status-pill pending">Pending</span></td><td>35%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Upcoming milestones</h3></div>
+              <ul class="dash-alerts">
+                <li><strong>Nov 20 · Homepage handoff</strong><span>Final files for the Website Redesign project.</span></li>
+                <li><strong>Nov 24 · Brand review</strong><span>Your feedback window on the guidelines draft.</span></li>
+                <li><strong>Dec 02 · SEO kickoff</strong><span>Keyword research and campaign plan.</span></li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

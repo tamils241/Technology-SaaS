@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Tell us what you need and the Stackly team will pick it up from here.">
+    <title>New Request — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page clients-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Client dashboard sections">
+        <p class="dash-sidenav-title">Client Dashboard</p>
+        <a href="clients-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="client-projects.html"><i aria-hidden="true">▤</i><span>My projects</span></a>
+        <a href="client-requests.html" class="is-active" aria-current="page"><i aria-hidden="true">✎</i><span>New request</span></a>
+        <a href="client-invoices.html"><i aria-hidden="true">▥</i><span>Invoices</span></a>
+        <a href="client-support.html"><i aria-hidden="true">✉</i><span>Support</span></a>
+        <a href="client-files.html"><i aria-hidden="true">⬆</i><span>Files &amp; assets</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Client Dashboard <span>/</span> New request</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">New request</span>
+              <h1>Submit a Request</h1>
+              <p>Tell us what you need and the Stackly team will pick it up from here.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="clients-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="client-support.html">Get support</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="New request summary">
+          <article class="dash-stat-card"><p>Open requests</p><h2>2</h2><span class="dash-trend">In progress</span></article>
+          <article class="dash-stat-card"><p>Completed</p><h2>9</h2><span class="dash-trend up">+3 this month</span></article>
+          <article class="dash-stat-card"><p>Avg. response</p><h2>4h</h2><span class="dash-trend up">Within target</span></article>
+          <article class="dash-stat-card"><p>Drafts</p><h2>1</h2><span class="dash-trend warn">Not yet sent</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Request details</h3></div>
+              <form class="dash-inline-form" data-demo-form>
+                <label for="request-type">Request type</label>
+                <select id="request-type" name="type" required><option value="">Choose a type</option><option>New project</option><option>Change request</option><option>File or asset</option><option>General question</option></select>
+                <label for="request-subject">Subject</label>
+                <input id="request-subject" name="subject" type="text" placeholder="Eg: Update the pricing page" required>
+                <label for="request-details">Details</label>
+                <textarea id="request-details" name="details" rows="4" placeholder="Tell us a little more about what you need…" required></textarea>
+                <button class="button button-purple" type="submit">Send request</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>How it works</h3></div>
+              <ul class="dash-alerts">
+                <li><strong>1. Send your request</strong><span>Share the type, subject, and a short description.</span></li>
+                <li><strong>2. We review it</strong><span>A teammate confirms scope and timing within four hours.</span></li>
+                <li><strong>3. Track progress</strong><span>Follow updates from your client dashboard.</span></li>
+              </ul>
+              <p class="dash-note">Need something urgent? Use <a href="client-support.html">Support</a> instead.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

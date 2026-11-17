@@ -11,12 +11,23 @@
   </head>
   <body class="content-page dashboard-page clients-dashboard-page">
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.png" alt="Stackly"></a>
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
 
       <a class="button button-blue header-login" href="login.html">Logout</a>
     </header>
 
     <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+        <nav class="dash-sidenav" aria-label="Client dashboard sections">
+          <p class="dash-sidenav-title">Client Dashboard</p>
+          <a href="clients-dashboard.html" class="is-active" aria-current="page"><i aria-hidden="true">▦</i><span>Overview</span></a>
+          <a href="client-projects.html"><i aria-hidden="true">▤</i><span>My projects</span></a>
+          <a href="client-requests.html"><i aria-hidden="true">✎</i><span>New request</span></a>
+          <a href="client-invoices.html"><i aria-hidden="true">▥</i><span>Invoices</span></a>
+          <a href="client-support.html"><i aria-hidden="true">✉</i><span>Support</span></a>
+          <a href="client-files.html"><i aria-hidden="true">⬆</i><span>Files &amp; assets</span></a>
+        </nav>
+        <div class="dash-content">
       <section class="dashboard-hero">
         <div>
           <span class="eyebrow">Client Dashboard</span>
@@ -24,8 +35,8 @@
           <p>Track your projects, review updates, and stay connected with the Stackly team.</p>
         </div>
         <div class="dashboard-actions">
-          <a class="button button-purple" href="404.html">New request</a>
-          <a class="button button-blue" href="404.html">Get support</a>
+          <a class="button button-purple" href="client-requests.html">New request</a>
+          <a class="button button-blue" href="client-support.html">Get support</a>
         </div>
       </section>
 
@@ -57,7 +68,7 @@
         <article class="dash-panel">
           <div class="dash-panel-head">
             <h3>My Projects</h3>
-            <a href="support.html">View details</a>
+            <a href="client-projects.html">View details</a>
           </div>
           <div class="dash-table-wrap">
             <table class="dash-table">
@@ -76,7 +87,7 @@
         <article class="dash-panel">
           <div class="dash-panel-head">
             <h3>Recent Updates</h3>
-            <a href="contact.html">Message team</a>
+            <a href="client-support.html">Message team</a>
           </div>
           <ul class="dash-alerts">
             <li><strong>Design review ready</strong><span>Your brand guidelines draft is ready for feedback.</span></li>
@@ -102,13 +113,15 @@
             <h3>Quick Actions</h3>
           </div>
           <div class="dash-quick-actions">
-            <a href="contact.html">Upload files</a>
-            <a href="support.html">Open ticket</a>
+            <a href="client-files.html">Upload files</a>
+            <a href="client-support.html">Open ticket</a>
             <a href="contact.html">Schedule call</a>
             <a href="about.html">View services</a>
           </div>
         </article>
       </section>
+        </div>
+      </div>
     </main>
   </body>
 </html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Review incoming requests, assign an owner, and keep response times within target.">
+    <title>Support Tickets — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page admin-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Admin dashboard sections">
+        <p class="dash-sidenav-title">Admin Dashboard</p>
+        <a href="admin-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="admin-projects.html"><i aria-hidden="true">▤</i><span>Projects</span></a>
+        <a href="admin-users.html"><i aria-hidden="true">♙</i><span>Users &amp; access</span></a>
+        <a href="admin-tickets.html" class="is-active" aria-current="page"><i aria-hidden="true">✉</i><span>Support tickets</span></a>
+        <a href="admin-reports.html"><i aria-hidden="true">▥</i><span>Reports</span></a>
+        <a href="admin-applications.html"><i aria-hidden="true">◉</i><span>Applications</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Admin Dashboard <span>/</span> Support tickets</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Support tickets</span>
+              <h1>Support Queue</h1>
+              <p>Review incoming requests, assign an owner, and keep response times within target.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="admin-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="admin-reports.html">Ticket report</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Support tickets summary">
+          <article class="dash-stat-card"><p>Open tickets</p><h2>19</h2><span class="dash-trend warn">+4 today</span></article>
+          <article class="dash-stat-card"><p>High priority</p><h2>5</h2><span class="dash-trend warn">Needs attention</span></article>
+          <article class="dash-stat-card"><p>In progress</p><h2>8</h2><span class="dash-trend">Assigned to team</span></article>
+          <article class="dash-stat-card"><p>Resolved today</p><h2>6</h2><span class="dash-trend up">On target</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Active tickets</h3><span class="dash-trend">19 open</span></div>
+              <form class="subpage-toolbar" data-filter-table="#admin-ticket-table" data-demo-form>
+                <label class="sr-only" for="admin-ticket-search">Search tickets</label>
+                <input id="admin-ticket-search" type="search" placeholder="Search tickets or clients…">
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="admin-ticket-table">
+                  <thead><tr><th>Ticket</th><th>Client</th><th>Priority</th><th>Status</th><th>Owner</th></tr></thead>
+                  <tbody>
+                    <tr><td>#TK-1042 · Login issue</td><td>Nova Labs</td><td><span class="status-pill pending">High</span></td><td><span class="status-pill progress">In Progress</span></td><td>Jane Lin</td></tr>
+                    <tr><td>#TK-1041 · Invoice question</td><td>GreenField</td><td><span class="status-pill review">Medium</span></td><td><span class="status-pill pending">Open</span></td><td>Unassigned</td></tr>
+                    <tr><td>#TK-1038 · File upload</td><td>Orbit Co.</td><td><span class="status-pill pending">High</span></td><td><span class="status-pill progress">In Progress</span></td><td>Liam Chen</td></tr>
+                    <tr><td>#TK-1035 · Feature request</td><td>BrightEdge</td><td><span class="status-pill success">Low</span></td><td><span class="status-pill review">In Review</span></td><td>Ethan Ross</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Assign a ticket</h3></div>
+              <form class="dash-inline-form" data-demo-form>
+                <label for="ticket-id">Ticket number</label>
+                <input id="ticket-id" name="ticket" type="text" placeholder="Eg: TK-1041" required>
+                <label for="ticket-owner">Teammate</label>
+                <select id="ticket-owner" name="owner" required><option value="">Choose teammate</option><option>Jane Lin</option><option>Sofia Mendes</option><option>Liam Chen</option><option>Ethan Ross</option></select>
+                <button class="button button-purple" type="submit">Assign ticket</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+              <p class="dash-note">High-priority tickets should be assigned within one hour.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

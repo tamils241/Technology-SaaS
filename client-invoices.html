@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Review your invoices, check payment status, and keep billing details in one place.">
+    <title>Invoices — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page clients-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Client dashboard sections">
+        <p class="dash-sidenav-title">Client Dashboard</p>
+        <a href="clients-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="client-projects.html"><i aria-hidden="true">▤</i><span>My projects</span></a>
+        <a href="client-requests.html"><i aria-hidden="true">✎</i><span>New request</span></a>
+        <a href="client-invoices.html" class="is-active" aria-current="page"><i aria-hidden="true">▥</i><span>Invoices</span></a>
+        <a href="client-support.html"><i aria-hidden="true">✉</i><span>Support</span></a>
+        <a href="client-files.html"><i aria-hidden="true">⬆</i><span>Files &amp; assets</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Client Dashboard <span>/</span> Invoices &amp; billing</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Invoices &amp; billing</span>
+              <h1>Invoices &amp; Billing</h1>
+              <p>Review your invoices, check payment status, and keep billing details in one place.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="clients-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="client-support.html">Billing help</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Invoices &amp; billing summary">
+          <article class="dash-stat-card"><p>Outstanding</p><h2>1</h2><span class="dash-trend warn">Due Nov 20</span></article>
+          <article class="dash-stat-card"><p>Paid this year</p><h2>9</h2><span class="dash-trend up">All on time</span></article>
+          <article class="dash-stat-card"><p>Total invoiced</p><h2>$18,420</h2><span class="dash-trend">2026 to date</span></article>
+          <article class="dash-stat-card"><p>Next due</p><h2>Nov 20</h2><span class="dash-trend">Invoice #INV-2043</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Invoice history</h3><span class="dash-trend">3 most recent</span></div>
+              <div class="dash-table-wrap">
+                <table class="dash-table">
+                  <thead><tr><th>Invoice</th><th>Project</th><th>Amount</th><th>Due</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td>#INV-2043</td><td>Website Redesign</td><td>$2,400</td><td>Nov 20</td><td><span class="status-pill pending">Unpaid</span></td></tr>
+                    <tr><td>#INV-2038</td><td>Brand Guidelines</td><td>$1,850</td><td>Nov 10</td><td><span class="status-pill success">Paid</span></td></tr>
+                    <tr><td>#INV-2031</td><td>SEO Campaign</td><td>$3,200</td><td>Oct 28</td><td><span class="status-pill success">Paid</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Payment details</h3></div>
+              <ul class="dash-list">
+                <li><div><strong>Billing email</strong><span>billing@yourcompany.com</span></div></li>
+                <li><div><strong>Payment method</strong><span>Visa ending in 4242</span></div><span class="status-pill success">Active</span></li>
+                <li><div><strong>Billing cycle</strong><span>Monthly, on the 20th</span></div></li>
+              </ul>
+              <p class="dash-note">Questions about a charge? <a href="client-support.html">Contact the billing team</a>.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

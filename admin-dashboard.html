@@ -11,12 +11,23 @@
   </head>
   <body class="content-page dashboard-page admin-dashboard-page">
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.png" alt="Stackly"></a>
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
 
       <a class="button button-blue header-login" href="login.html">Logout</a>
     </header>
 
     <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+        <nav class="dash-sidenav" aria-label="Admin dashboard sections">
+          <p class="dash-sidenav-title">Admin Dashboard</p>
+          <a href="admin-dashboard.html" class="is-active" aria-current="page"><i aria-hidden="true">▦</i><span>Overview</span></a>
+          <a href="admin-projects.html"><i aria-hidden="true">▤</i><span>Projects</span></a>
+          <a href="admin-users.html"><i aria-hidden="true">♙</i><span>Users &amp; access</span></a>
+          <a href="admin-tickets.html"><i aria-hidden="true">✉</i><span>Support tickets</span></a>
+          <a href="admin-reports.html"><i aria-hidden="true">▥</i><span>Reports</span></a>
+          <a href="admin-applications.html"><i aria-hidden="true">◉</i><span>Applications</span></a>
+        </nav>
+        <div class="dash-content">
       <section class="dashboard-hero">
         <div>
           <span class="eyebrow">Admin Dashboard</span>
@@ -24,8 +35,8 @@
           <p>Monitor platform activity, manage users and clients, and keep projects on track.</p>
         </div>
         <div class="dashboard-actions">
-          <a class="button button-purple" href="contact.html">Create report</a>
-          <a class="button button-blue" href="support.html">Manage requests</a>
+          <a class="button button-purple" href="admin-reports.html">Create report</a>
+          <a class="button button-blue" href="admin-tickets.html">Manage requests</a>
         </div>
       </section>
 
@@ -56,7 +67,7 @@
         <article class="dash-panel">
           <div class="dash-panel-head">
             <h3>Recent Projects</h3>
-            <a href="support.html">View all</a>
+            <a href="admin-projects.html">View all</a>
           </div>
           <div class="dash-table-wrap">
             <table class="dash-table">
@@ -76,7 +87,7 @@
         <article class="dash-panel">
           <div class="dash-panel-head">
             <h3>User Management</h3>
-            <a href="contact.html">Add user</a>
+            <a href="admin-users.html">Add user</a>
           </div>
           <ul class="dash-list">
             <li><div><strong>Jane Lin</strong><span>Admin · jane@stackly.example</span></div><span class="status-pill success">Active</span></li>
@@ -103,13 +114,15 @@
             <h3>Quick Actions</h3>
           </div>
           <div class="dash-quick-actions">
-            <a href="careers.html">Review applications</a>
-            <a href="support.html">Assign tickets</a>
-            <a href="contact.html">Message clients</a>
+            <a href="admin-applications.html">Review applications</a>
+            <a href="admin-tickets.html">Assign tickets</a>
+            <a href="admin-users.html">Message clients</a>
             <a href="about.html">Update content</a>
           </div>
         </article>
       </section>
+        </div>
+      </div>
     </main>
   </body>
 </html>

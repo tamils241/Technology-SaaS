@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fa">
+    <meta name="description" content="Generate project, user, and support summaries for your team and stakeholders.">
+    <title>Reports — Stackly</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="content-page dashboard-page admin-dashboard-page dash-subpage">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Stackly home"><img class="brand-logo" src="images/logo.webp" alt="Stackly"></a>
+      <a class="button button-blue header-login" href="login.html">Logout</a>
+    </header>
+
+    <main class="dashboard-main page-shell">
+      <div class="dash-shell">
+      <nav class="dash-sidenav" aria-label="Admin dashboard sections">
+        <p class="dash-sidenav-title">Admin Dashboard</p>
+        <a href="admin-dashboard.html"><i aria-hidden="true">▦</i><span>Overview</span></a>
+        <a href="admin-projects.html"><i aria-hidden="true">▤</i><span>Projects</span></a>
+        <a href="admin-users.html"><i aria-hidden="true">♙</i><span>Users &amp; access</span></a>
+        <a href="admin-tickets.html"><i aria-hidden="true">✉</i><span>Support tickets</span></a>
+        <a href="admin-reports.html" class="is-active" aria-current="page"><i aria-hidden="true">▥</i><span>Reports</span></a>
+        <a href="admin-applications.html"><i aria-hidden="true">◉</i><span>Applications</span></a>
+      </nav>
+        <div class="dash-content">
+          <p class="dash-breadcrumb">Admin Dashboard <span>/</span> Reports</p>
+          <section class="dashboard-hero">
+            <div>
+              <span class="eyebrow">Reports</span>
+              <h1>Reports &amp; Exports</h1>
+              <p>Generate project, user, and support summaries for your team and stakeholders.</p>
+            </div>
+            <div class="dashboard-actions">
+              <a class="button button-blue" href="admin-dashboard.html">← Overview</a>
+              <a class="button button-purple" href="admin-projects.html">View projects</a>
+            </div>
+          </section>
+
+          <section class="dashboard-stats" aria-label="Reports summary">
+          <article class="dash-stat-card"><p>Generated this month</p><h2>24</h2><span class="dash-trend up">+8 vs last month</span></article>
+          <article class="dash-stat-card"><p>Scheduled</p><h2>6</h2><span class="dash-trend">Recurring exports</span></article>
+          <article class="dash-stat-card"><p>Shared</p><h2>11</h2><span class="dash-trend">With client teams</span></article>
+          <article class="dash-stat-card"><p>Drafts</p><h2>3</h2><span class="dash-trend warn">Ready to finish</span></article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Create a report</h3></div>
+              <form class="dash-inline-form" data-demo-form>
+                <label for="report-name">Report name</label>
+                <input id="report-name" name="report" type="text" placeholder="Eg: November project summary" required>
+                <label for="report-type">Report type</label>
+                <select id="report-type" name="type" required><option value="">Choose type</option><option>Project status</option><option>User activity</option><option>Support tickets</option><option>Billing</option></select>
+                <label for="report-period">Period</label>
+                <select id="report-period" name="period" required><option>This month</option><option>Last month</option><option>This quarter</option></select>
+                <button class="button button-purple" type="submit">Generate report</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+            </article>
+            <article class="dash-panel">
+              <div class="dash-panel-head"><h3>Recent reports</h3></div>
+              <ul class="dash-list">
+                <li><div><strong>October project summary</strong><span>Project status · Generated Nov 02</span></div><span class="status-pill success">Ready</span></li>
+                <li><div><strong>User activity Q3</strong><span>User activity · Generated Oct 15</span></div><span class="status-pill success">Ready</span></li>
+                <li><div><strong>Support volume</strong><span>Support tickets · Generated Oct 08</span></div><span class="status-pill progress">Building</span></li>
+              </ul>
+              <p class="dash-note">Reports are generated locally in this demo — no data leaves your browser.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
