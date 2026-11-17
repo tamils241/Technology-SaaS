@@ -197,6 +197,9 @@ document.querySelectorAll("[data-go-back]").forEach((button) => {
     ".benefit",
     ".solution-grid article",
     ".stats-grid > div",
+    ".about-gallery img",
+    ".about-gallery .gallery-note",
+    ".about-gallery .dots-gallery",
     ".client-quote",
     ".workflow-copy",
     ".dashboard",
@@ -220,7 +223,24 @@ document.querySelectorAll("[data-go-back]").forEach((button) => {
     ".launch-strip",
     ".footer-top",
     ".footer-main > *",
-    ".light-footer > *"
+    ".light-footer > *",
+    ".about-hero-art",
+    ".about-stats > div",
+    ".feature-grid article",
+    ".about-promo > div",
+    ".manage-layout > *",
+    ".pricing-grid article",
+    ".pricing-faq article",
+    ".integration-section > div",
+    ".client-reviews article",
+    ".about-bottom-cta > *",
+    ".support-stats > div",
+    ".support-work > *",
+    ".support-benefits > div",
+    ".faq-layout > div",
+    ".newsletter",
+    ".light-footer-brand",
+    ".light-footer-links > div"
   ].join(",");
 
   const elements = Array.from(document.querySelectorAll(revealSelectors)).filter(
@@ -263,4 +283,113 @@ document.querySelectorAll("[data-go-back]").forEach((button) => {
   );
 
   targets.forEach((el) => observer.observe(el));
+})();
+
+// Count-up animation for the about section stats
+(() => {
+  const counters = Array.from(document.querySelectorAll("[data-count]"));
+  if (!counters.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const formatValue = (value, el, target) => {
+    const suffix = el.dataset.suffix || "";
+
+    if (el.dataset.format === "compact" && target >= 1000000) {
+      return `${(value / 1000000).toFixed(1)}M${suffix}`;
+    }
+
+    const decimals = Number(el.dataset.decimals || 0);
+    return `${value.toFixed(decimals)}${suffix}`;
+  };
+
+  const animate = (el) => {
+    const target = Number(el.dataset.count);
+    const finalText = el.textContent.trim();
+    const duration = 1500;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      if (progress >= 1) {
+        el.textContent = finalText;
+        return;
+      }
+
+      el.textContent = formatValue(target * eased, el, target);
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((el) => observer.observe(el));
+})();
+
+/* =========================================
+   STACKLY - GLOBAL 3D CARD TILT
+========================================= */
+
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desktopHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (reduceMotion || !desktopHover) return;
+
+  const cardSelectors = [
+    ".feature-item",
+    ".location-grid article",
+    ".support-service-grid a",
+    ".team-grid article",
+    ".pricing-grid article",
+    ".review-grid article",
+    ".about-quotes blockquote",
+    ".manage-steps li",
+    ".faq-item",
+    ".service-card",
+    ".portfolio-card",
+    ".benefit",
+    ".news-grid article",
+    ".job-card",
+    ".mini-card",
+    ".calendar-card"
+  ].join(",");
+
+  document.querySelectorAll(cardSelectors).forEach((card) => {
+    card.classList.add("has-3d-tilt");
+
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * 5;
+      const rotateX = ((centerY - y) / centerY) * 5;
+
+      card.style.setProperty("--tilt-x", `${rotateX}deg`);
+      card.style.setProperty("--tilt-y", `${rotateY}deg`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--tilt-x", "0deg");
+      card.style.setProperty("--tilt-y", "0deg");
+    });
+  });
 })();
