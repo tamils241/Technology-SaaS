@@ -184,3 +184,83 @@ document.querySelectorAll("[data-go-back]").forEach((button) => {
     }
   });
 });
+
+// Scroll & card reveal animations (all pages)
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const revealSelectors = [
+    "main > section",
+    ".site-footer",
+    ".service-card",
+    ".portfolio-card",
+    ".benefit",
+    ".solution-grid article",
+    ".stats-grid > div",
+    ".client-quote",
+    ".workflow-copy",
+    ".dashboard",
+    ".job-card",
+    ".news-grid article",
+    ".team-grid article",
+    ".category-grid a",
+    ".support-service-grid a",
+    ".location-grid > *",
+    ".faq-list details",
+    ".dash-panel",
+    ".dash-stat-card",
+    ".auth-card",
+    ".auth-aside",
+    ".contact-form",
+    ".contact-info",
+    ".career-reasons-content",
+    ".career-reasons-image",
+    ".career-feature",
+    ".company-logos > div > *",
+    ".launch-strip",
+    ".footer-top",
+    ".footer-main > *",
+    ".light-footer > *"
+  ].join(",");
+
+  const elements = Array.from(document.querySelectorAll(revealSelectors)).filter(
+    (el) => !el.classList.contains("no-reveal")
+  );
+
+  // Avoid double-processing and keep natural order for stagger within parents
+  const seen = new Set();
+  const targets = elements.filter((el) => {
+    if (seen.has(el)) return false;
+    seen.add(el);
+    return true;
+  });
+
+  const staggerGroups = new Map();
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    const parent = el.parentElement || document.body;
+    const idx = (staggerGroups.get(parent) || 0);
+    staggerGroups.set(parent, idx + 1);
+    const delay = Math.min(idx * 80, 480);
+    el.style.setProperty("--reveal-delay", `${delay}ms`);
+  });
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    targets.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+})();
